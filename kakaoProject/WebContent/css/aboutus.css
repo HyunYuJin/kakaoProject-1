@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+#section_wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#section_wrap h2{
+    margin: 50px 0 30px 0;
+}
+
+#keyimage img{
+    width: 100%;
+}
+
+.vision{
+    height: 270px;
+    margin-top: 50px;
+}
+
+.title{
+    font-size: 15pt;
+    font-weight: bold;
+    padding: 0 5px 10px 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.titleContent{
+    padding: 5px;
+    line-height: 25px;
+    margin-top: 30px;
+}
+
+.title2{
+    margin-top: 30px;
+    font-size: 14pt;
+    padding-left: 5px;
+}
+
+#method{
+    height: 400px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+#method h2{
+    font-size: 15pt;
+    padding: 0 0 10px 5px;
+}
+
+.box{
+    width: 30%;
+    height: 200px;
+    border: 1px solid #000;
+    border-radius: 100px;
+    float: left;
+    text-align: center;
+    line-height: 200px;
+    margin-right: 3%;
+    box-sizing: border-box;
+    font-size: 14pt;
+}
+
+#walk h2{
+    clear: both;
+    margin-top: 80px;
+    font-size: 15pt;
+}
+
+#walk img{
+    width: 100%;
+    margin-top: 30px;
+}
+
+#walk p{
+    padding: 5px;
+    line-height: 25px;
+    margin-top: 30px;
+}
+
+table{
+    width: 1000px;
+    margin: 0 auto;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-top: 40px;
+    border-top: 1px solid #ccc;
+}
+
+tr{
+    display: table-row;
+    vertical-align: inherit;
+}
+
+th{
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    height: 80px;
+}
+
+td{
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.num{
+    text-align: center;
+    border-right: 1px solid #ccc;
+    width: 70px;
+}
+
+.tableContent{
+    padding-left: 20px;
+}
