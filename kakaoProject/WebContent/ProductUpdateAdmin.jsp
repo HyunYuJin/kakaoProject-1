@@ -99,7 +99,7 @@
                     		realPath = null; */
                     	%>
                     	<input type = "file" size=40 value = "<%=realPath%>"><br>
-                    	<%-- <input type = "hidden" name = "<%=name%>" value = "<%=i.getNum()%>"> --%>
+                    	
                     	<%
                     }
                     while(n <= 6)
