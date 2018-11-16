@@ -16,7 +16,7 @@ public class FieldInsertController implements Controller {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("UTF-8");
 		FieldService service = FieldService.getInstance();
-		String name = req.getParameter("name");
+		String name = req.getParameter("name").trim();
 		String explain = req.getParameter("explain");
 		String division = req.getParameter("division");
 		String employeeType = req.getParameter("employeeType");

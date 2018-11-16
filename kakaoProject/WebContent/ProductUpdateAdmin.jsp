@@ -28,7 +28,9 @@
 			break;
 		}
 	}
-	ImageVO mainImage = service_2.getMainImage(product.getNum());
+	ArrayList<ImageVO> list_i = service_2.getImageList(product.getNum());
+	String path = request.getRealPath("/쇼핑몰/쇼핑몰/test");
+	/* ImageVO mainImage = service_2.getImageList(product.getNum()); */
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +49,7 @@
         <section>
             <article>
               <p>상품수정</p>
-               <form action="productUpdate.do" method="post">
+               <form action="productUpdate.do" enctype="multipart/form-data" method="post">
                     <div id="UserTable">
                     <table>
                        <tr>
@@ -69,8 +71,7 @@
                                     <option value="frodo">Frodo</option>
                                 </select>
                             </td>
-                            <th class = "first">메인이미지</th>
-                            <td><input type = "text" name = "image" value = "<%=mainImage.getSrc()%>"></td>
+                            
                         </tr>
                         <tr>
                             <th class="first">상품설명</th>
@@ -87,6 +88,34 @@
                             </td>
                         </tr>
                     </table>
+                   <%
+                   int n = 1;
+                   String name = "file" + n;
+                    for(ImageVO i : list_i)
+                    {                   	
+                    	n++;
+                    	String realPath = path + i.getSrc();
+                    	/* if(i.getSrc() == null)
+                    		realPath = null; */
+                    	%>
+                    	<input type = "file" size=40 value = "<%=realPath%>"><br>
+                    	<input type = "hidden" name = "<%=name%>" value = "<%=i.getNum()%>">
+                    	<%
+                    }
+                    while(n <= 6)
+                    {%>
+                    	<input type = "file" size=40><br>
+                    	<input type = "hidden" name = "<%=name%>" value ="-1">                  
+                    <%
+                    n++;
+                    }
+                    %>                     
+                    <!-- <input type = "file" name="file1" size=40><br>
+					<input type = "file" name="file2" size=40><br>
+					<input type = "file" name="file3" size=40><br>
+					<input type = "file" name="file4" size=40><br>
+					<input type = "file" name="file5" size=40><br>
+					<input type = "file" name="file6" size=40><br> -->
                     <div class="button1">
                           <input type="hidden" name="num" value = "<%=product.getNum()%>">
                             <input type="submit" value="저장">

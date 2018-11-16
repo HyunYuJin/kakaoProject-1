@@ -14,6 +14,7 @@ public class IdCheckController implements Controller{
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("idcheck 실행");
 		req.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html; charset = UTF-8");
 		MemberService service = MemberService.serviceGetInstance();
@@ -24,20 +25,13 @@ public class IdCheckController implements Controller{
 		System.out.println("value : " + value);
 		if(!value)
 		{
-			req.setAttribute("error","중복되는 아이디가 존재 합니다.");
-			req.removeAttribute("id");
-			System.out.println("아이디 중복");
-			out.println("<script language = 'javascript'>");
-			out.print("alert('아이디가 중복됩니다');");
-			out.print("history.back(-1)");
-			out.println("</script>");
-			out.close();
-			HttpUtil.forward(req, res,"join.jsp");
+			res.getWriter().write("0"); //아이디 중복 존재
 			return;
 		}
-		req.setAttribute("id",id);
+		/*req.setAttribute("id",id);
 		req.setAttribute("msg","사용할 수 있는 아이디입니다.");
-		HttpUtil.forward(req, res,"join.jsp");
+		HttpUtil.forward(req, res,"join.jsp");*/
+		res.getWriter().write("1"); //아이디 사용 가능
 		/*out.println("<script language = 'javascript'>");
 		out.print("alert('사용가능한 아이디입니다.');");
 		out.print("history.back(-1)");

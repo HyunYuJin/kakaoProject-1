@@ -42,12 +42,16 @@ public class ProductService {
 		// TODO Auto-generated method stub
 		dao.updateProduct(vo, num);
 	}
-	public void insertProduct(ProductVO vo,String image) {
+	public void insertProduct(ProductVO vo) {
 		// TODO Auto-generated method stub
-		dao.insertProduct(vo,image);
+		dao.insertProduct(vo);
 	}
 	public void deleteProduct(int num) {
 		// TODO Auto-generated method stub
 		dao.deleteProduct(num);
+	}
+	public void insertProduct(ProductVO vo, String saveDir, ArrayList<String> fileNames) {
+		// TODO Auto-generated method stub
+		dao.insertProduct(vo,saveDir,fileNames);
 	}
 }

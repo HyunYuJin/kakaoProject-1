@@ -45,6 +45,7 @@ public class FrontController extends HttpServlet{
 		list.put("/productSearch.do",new ProductSearchController_test());
 /*		list.put("/productSearch_test.do",new ProductSearchController_test());*/
 		list.put("/imageInsert.do",new ImageInsertController());
+		list.put("/imageUpload.do",new ImageUploadController());
 		adminId = config.getInitParameter("adminId");
 		adminPw = config.getInitParameter("adminPw");
 	}

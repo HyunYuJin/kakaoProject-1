@@ -37,21 +37,20 @@ public class MemberInsertController implements Controller{
 		}
 		MemberVO member = new MemberVO(id,pw,name,email,address,gender,phone,birthDate);
 		service.MemberInsertService(member);
-		if(KakaoDao.getIdchk())
+		/*if(KakaoDao.getIdchk())
 		{
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('중복된 아이디가 존재합니다.');");
 			out.println("location='join.jsp';");
 			out.println("</script>");
 			return;
-		}
-		else
-		{
+		}*/
+		
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('회원가입 성공! 환영합니다.');");
 			out.println("location='index.jsp';");
 			out.println("</script>");
-		}
+		
 	}
 
 	

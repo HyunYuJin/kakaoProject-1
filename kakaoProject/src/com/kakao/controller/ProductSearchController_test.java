@@ -20,7 +20,7 @@ public class ProductSearchController_test implements Controller {
 		PrintWriter out = res.getWriter();
 		req.setCharacterEncoding("UTF-8");
 		ProductService service = ProductService.serviceGetInstance();
-		String name = req.getParameter("name");
+		String name = req.getParameter("name").trim();
 		System.out.println("name : " + name);
 		ArrayList<ProductVO> list = service.searchProduct(name);
 		if(list==null)

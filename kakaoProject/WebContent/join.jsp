@@ -14,24 +14,49 @@
         <script>
         function mysubmit(num)
         {
-        	if(num == 1)
-			{
-        		document.newMemberForm.action = 'idCheck.do';
-			}
-        	if(num == 2)
-        	{
-        		document.newMemberForm.action = 'memberInsert.do';
-        	}
+        	
+        	document.newMemberForm.action = 'memberInsert.do';
+        	
         	document.newMemberForm.submit();
+        }
+        
+        function idCheck()
+        {
+        	var this_id = document.getElementById("id").value;
+        	$.ajax
+            (
+  	
+         		{      			
+         			type : "POST",
+            		url : "idCheck.do",
+            		data :
+           			{
+           				id : this_id
+           			},
+           			success : function(result)
+           			{
+           				if(result == 0)
+           					{
+           					$("#errorM").append('<p>아이디 중복</p>');
+           					}
+           				else if(result == 1)
+           					{
+           					$("#errorM").append('<p>아이디  사용 가능</p>');
+           					}
+           			}
+         		}
+            );   	
         }
         </script>  
 </head>
 <body>
+		<div id = "errorM">
+		</div>
          <div id="wrap">
          <header>
            <%@ include file="header.jsp" %>
         </header>
-            <form id="newMemberForm" name="newMemberForm" method="post" action="memberInsert.do">
+           <form id="newMemberForm" name="newMemberForm" method="post">
           <h3 class="join">회원가입</h3>
           <p class="necessary">*은 필수 입력 사항입니다.</p>
            <h3 class="text">개인정보 수집 및 이용에 대한 안내</h3>
@@ -50,8 +75,9 @@
             <tr>
                 <th>아이디 *</th>
                 <td class="put">
-                    <input type="text" id="id" name="id" value =${id }  >${msg} (6~12자 이내)
-                    <input type="button" value="중복확인" onClick = "mysubmit(1)">
+                    <input type="text" id="id" name="id">${msg} (6~12자 이내)
+                    <button type = "button" onclick = "idCheck();">중복확인</button>
+                   <!--  <input type="button" value="중복확인" onClick = "mysubmit(1);"> -->
                 </td>
             </tr>
             <tr>
@@ -97,7 +123,7 @@
                </tr>
                <tr>
                    <th>생년월일</th>
-                   <td class="put"><input type="date" id="birth" name="birthDate"></td>
+                   <td class="put"><input type="Date" id="birth" name="birthDate"></td>
                </tr>
                  <tr>
                   <th>휴대폰 번호 *</th>
@@ -111,8 +137,7 @@
                 </tr>             
             </table>
             <div class="btnArea">
-                <a href="#"><input type="submit" value="회원가입" class="btn1">
-                </a>
+                <button type = "button" onclick = "mysubmit();">회원가입</button>
                 <a href=""><input type="reset" value="회원가입취소" class="btn2"></a>
             </div>
            </form> 

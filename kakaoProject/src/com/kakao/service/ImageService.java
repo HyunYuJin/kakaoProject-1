@@ -15,14 +15,15 @@ public class ImageService {
 		return service;
 	}
 	
-	public void insertImage(ImageVO vo)
+	public void insertImages(String saveDir, ArrayList<String> fileNames,int productNum)
 	{
-		dao.insertImage(vo);
+		dao.insertImages(saveDir,fileNames,productNum);
 	}
 	public ImageVO getMainImage(int productNum)
 	{
 		return dao.getMainImage(productNum);
 	}
+	
 	public ArrayList<ImageVO> getMainImageList()
 	{
 		return dao.getMainImageList();
@@ -32,4 +33,5 @@ public class ImageService {
 	{
 		return dao.getImageList(productNum);
 	}
+	
 }

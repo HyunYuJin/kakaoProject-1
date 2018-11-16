@@ -16,8 +16,8 @@ import com.kakao.VO.ResumeVO;
 
 public class KakaoDao {
 
-	private static boolean Idchk = false; //아이디 중복 : 같으면 true 다르면 false
-	private static KakaoDao dao = new KakaoDao();
+	/*private static boolean Idchk = false; //아이디 중복 : 같으면 true 다르면 false
+*/	private static KakaoDao dao = new KakaoDao();
 	
 	private KakaoDao() {}
 	
@@ -70,10 +70,10 @@ public class KakaoDao {
 		}
 	}
 	
-	public static boolean getIdchk()
+	/*public static boolean getIdchk()
 	{
 		return Idchk;
-	}
+	}*/
 	
 	public boolean idCheck(String id)
 	{
@@ -111,7 +111,7 @@ public class KakaoDao {
 			 {
 				 if((member.getId()).equals(memChk.getId()))
 				 {
-					 Idchk = true;
+					/* Idchk = true;*/
 					 return;
 				 }
 			 }
@@ -792,7 +792,7 @@ public class KakaoDao {
 		}
 	}
 
-	public void insertProduct(ProductVO product,String image)
+	public void insertProduct(ProductVO product)
 	{
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -807,7 +807,7 @@ public class KakaoDao {
 			psmt.setString(3,product.getDetail());
 			psmt.setString(4,product.getCha());
 			psmt.setString(5, product.getCategory());
-			psmt.executeUpdate();
+			/*psmt.executeUpdate();
 			psmt = conn.prepareStatement("select num from product where name = ?");
 			psmt.setString(1,product.getName());
 			rs = psmt.executeQuery();
@@ -818,7 +818,7 @@ public class KakaoDao {
 			psmt = conn.prepareStatement("insert into image(productNum,position,src) values(?,?,?)");
 			psmt.setInt(1,productNum);
 			psmt.setString(2,"main");
-			psmt.setString(3,image);
+			psmt.setString(3,image);*/
 			psmt.executeUpdate();
 		}
 		catch(Exception e)
@@ -1361,14 +1361,15 @@ public class KakaoDao {
 		try
 		{
 			conn = connect();
-			psmt = conn.prepareStatement("select src,position from image where productNum = ?");
+			psmt = conn.prepareStatement("select src,position,num from image where productNum = ?");
 			psmt.setInt(1, productNum);
 			rs = psmt.executeQuery();
 			while(rs.next())
 			{
-				image = new ImageVO();
+				image = new ImageVO();			
 				image.setSrc(rs.getString(1));
 				image.setPosition(rs.getString(2));
+				image.setNum(rs.getInt(3));
 				list.add(image);
 			}
 		}
@@ -1382,4 +1383,77 @@ public class KakaoDao {
 		}
 		return list;
 	}
+
+	
+	
+	public void insertImages(String saveDir, ArrayList<String> fileNames,int productNum) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		try
+		{
+			int n = 1;
+			conn = connect();
+			psmt = conn.prepareStatement("insert into image(src,position,productNum) values(?,?,?)");
+			for(String fileName : fileNames)
+			{
+			
+				psmt.setString(1,saveDir + "/" + fileName);
+				if(n == 1)
+				{
+					psmt.setString(2, "main");
+					n++;
+				}
+				else
+					psmt.setString(2, "sub");
+				psmt.setInt(3, productNum);
+				psmt.executeUpdate();
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("imageinsert : dao 오류 발생 -> " + e);
+		}
+		finally
+		{
+			close(conn, psmt);
+		}
+	}
+
+	public void insertProduct(ProductVO product, String saveDir, ArrayList<String> fileNames)
+	{
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		int productNum = -1;
+		try
+		{
+			conn = connect();
+			psmt = conn.prepareStatement("insert into product(name,price,detail,cha,category) values(?,?,?,?,?)");
+			psmt.setString(1,product.getName());
+			psmt.setInt(2, product.getPrice());
+			psmt.setString(3,product.getDetail());
+			psmt.setString(4,product.getCha());
+			psmt.setString(5, product.getCategory());
+			psmt.executeUpdate();
+			psmt = conn.prepareStatement("select last_insert_id()");
+			rs = psmt.executeQuery();
+			while(rs.next())
+			{
+				productNum = rs.getInt(1);
+			}
+			System.out.println(productNum);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Productinsert : dao 오류 발생 -> " + e); 
+		}
+		finally
+		{
+			close(conn, psmt);
+			if(productNum != -1)
+				insertImages(saveDir, fileNames, productNum); //이미지 삽입으로 넘어감
+		}
+	}
+	
 }
