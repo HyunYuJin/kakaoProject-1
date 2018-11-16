@@ -110,12 +110,7 @@
                     n++;
                     }
                     %>                     
-                    <!-- <input type = "file" name="file1" size=40><br>
-					<input type = "file" name="file2" size=40><br>
-					<input type = "file" name="file3" size=40><br>
-					<input type = "file" name="file4" size=40><br>
-					<input type = "file" name="file5" size=40><br>
-					<input type = "file" name="file6" size=40><br> -->
+                  
                     <div class="button1">
                           <input type="hidden" name="num" value = "<%=product.getNum()%>">
                             <input type="submit" value="저장">
