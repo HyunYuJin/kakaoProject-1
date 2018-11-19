@@ -46,7 +46,7 @@ public class ProductInsertController implements Controller {
 		req.setCharacterEncoding("UTF-8");
 		int maxSize = 3 * 1024 * 1024;
 		String encoding = "UTF-8";
-		String saveDir = "C:\\git\\kakaoProject\\WebContent\\쇼핑몰\\쇼핑몰\\test";
+		String saveDir = "C:\\dev\\workplace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\kakaoProject\\쇼핑몰\\쇼핑몰\\test";
 		System.out.println(req.getRealPath("쇼핑몰/쇼핑몰/test"));
 		MultipartRequest multi = new MultipartRequest(req, saveDir, maxSize, encoding, new DefaultFileRenamePolicy());
 		ProductVO vo = new ProductVO();
@@ -76,6 +76,7 @@ public class ProductInsertController implements Controller {
 			fileName = multi.getFilesystemName(formname);
 			if(fileName != null)
 				fileNames.add(fileName); //null이아니면 fileNames에 추가 
+			System.out.println(fileName);
 		}
 		/*System.out.println(list_cha.get(cha));
 		System.out.println(list_cate.get(category));*/

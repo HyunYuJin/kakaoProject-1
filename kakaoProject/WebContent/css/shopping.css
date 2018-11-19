@@ -3,6 +3,10 @@
 /*Reset*/
 *{margin: 0; padding: 0;}
 
+*:focus {
+    outline: none;
+}
+
 ol, ul{
     list-style: none;
 }
@@ -165,8 +169,8 @@ nav > ul > li > div{
     top: -50px;
     width: 200px;
     height: 300px;
-    background: #d8acad;
-    border: 1px solid #bbb;
+    background: aliceblue;
+    border: 1px solid #eee;
     box-sizing: border-box;
     opacity: 0;
     transition: all 0.5s;

@@ -9,27 +9,27 @@
 <%
 if(session.getAttribute("cUser") == null)
 {
-	HttpUtil.forward(request, response,"index.jsp");
-	return;
+   HttpUtil.forward(request, response,"index.jsp");
+   return;
 }
 %>
 <%
-	int num = Integer.parseInt(request.getParameter("num"));
-	ProductService service = ProductService.serviceGetInstance();
-	ImageService service_2 = ImageService.getInstance();
-	ArrayList<ProductVO> list = service.getProductList();
-	ArrayList<ImageVO> imageList = service_2.getImageList(num);
-	ImageVO mainImage = service_2.getMainImage(num);
-	ProductVO product = null;
-	for(ProductVO vo : list)
-	{
-		if(vo.getNum()==num)
-		{
-			product = vo;
-			break;
-		}
-	}
-	
+   int num = Integer.parseInt(request.getParameter("num"));
+   ProductService service = ProductService.serviceGetInstance();
+   ImageService service_2 = ImageService.getInstance();
+   ArrayList<ProductVO> list = service.getProductList();
+   ArrayList<ImageVO> imageList = service_2.getImageList(num);
+   ImageVO mainImage = service_2.getMainImage(num);
+   ProductVO product = null;
+   for(ProductVO vo : list)
+   {
+      if(vo.getNum()==num)
+      {
+         product = vo;
+         break;
+      }
+   }
+   
 %>    
 <!DOCTYPE html>
 <html lang="ko">
@@ -75,7 +75,7 @@ if(session.getAttribute("cUser") == null)
                                <%
                                for(int x = 1 ; x < 11 ; x++)
                                {%>
-                            	 <option value = "<%=x%>"><%=x%></option>  
+                                <option value = "<%=x%>"><%=x%></option>  
                                <%}
                                %>
                                </select>
@@ -84,9 +84,9 @@ if(session.getAttribute("cUser") == null)
                     </tr>
                     
                 </table>
-                	<input type = "hidden" value = "<%=product.getPrice()%>" name = "price">
-                	<input type = "hidden" value = "<%=product.getName()%>" name = "productName">
-                	<input type = "hidden" value = "<%=product.getNum()%>" name = "productNum">
+                   <input type = "hidden" value = "<%=product.getPrice()%>" name = "price">
+                   <input type = "hidden" value = "<%=product.getName()%>" name = "productName">
+                   <input type = "hidden" value = "<%=product.getNum()%>" name = "productNum">
                     <input type="submit" value="구매하기" id="buy"> 
                 </form>
                </div>
@@ -103,39 +103,39 @@ if(session.getAttribute("cUser") == null)
                     </div>
                     <div id="slideShowBox">
                         <div id="slidePanel">
-                        	<%
-                        	int cnt = 0;
-                        	for(int x = 0; x < 6 ; x++)
-                        	{
-                        		if(imageList.size() < 6)
-                            	{
-                        		System.out.println(" x = " + x);
-                            	System.out.println((imageList.get(x)).getSrc());
-                            	%>
-                        			<a href="#">
+                           <%
+                           int cnt = 0;
+                           for(int x = 0; x < 6 ; x++)
+                           {
+                              if(imageList.size() < 6)
+                               {
+                              System.out.println(" x = " + x);
+                               System.out.println((imageList.get(x)).getSrc());
+                               %>
+                                 <a href="#">
                                     <img src="<%=(imageList.get(x)).getSrc()%>" class="slideImage">
-                                	</a>	
-                            	<%
-                            		cnt++;
-                            		if(x == imageList.size() - 1)
-                            		{
-                            			x = -1;
-                            		}
-                            		if(cnt == 6)
-                            		{
-                            			break;
-                            		}
-                            	}
-                            	else
-                            	{%>
-                            	System.out.println(imageList.get(x)).getSrc());
-                            		<a href="#">
+                                   </a>   
+                               <%
+                                  cnt++;
+                                  if(x == imageList.size() - 1)
+                                  {
+                                     x = -1;
+                                  }
+                                  if(cnt == 6)
+                                  {
+                                     break;
+                                  }
+                               }
+                               else
+                               {%>
+                               System.out.println(imageList.get(x)).getSrc());
+                                  <a href="#">
                                     <img src="<%=(imageList.get(x)).getSrc()%>" class="slideImage">
-                                	</a>
-                            	<%}
-                            	
-                        	}
-                        	%>
+                                   </a>
+                               <%}
+                               
+                           }
+                           %>
                         </div>
                     </div>
                 </div>

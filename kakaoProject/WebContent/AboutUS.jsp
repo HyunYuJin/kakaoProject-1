@@ -18,7 +18,7 @@
            <section>
              <div id="section_wrap">
               <article>
-                  <h2>“Connect Everything” 새로운 연결, 더 나은 세상</h2>
+                  <h2 class="about_us">“Connect Everything” 새로운 연결, 더 나은 세상</h2>
                   <div id="keyimage">
                       <img src="images/AboutUS1.jpg">
                   </div>
@@ -34,14 +34,29 @@
                       <p class="titleContent">아무도 가보지 않은 길을 함께 가는 사람들, 카카오크루는 세상의 문제를 새로운 시각과 방식으로 해결하고 싶고, <br>나에게 충분한 권한과 책임을 받아서 신나게 일하고 싶은 기업가정신이 충만한 사람들을 말합니다.</p>
                   </div>
               </article>
-              <article>
+              <!-- <article>
                  <div id="method">
                   <h2>일하는 방식</h2>
                   <div class="box">자기주도성</div>
                   <div class="box">공개공유</div>
                   <div class="box">수평 커뮤니케이션</div>
-                  </div>
-              </article>
+                  </div> 
+              </article> -->
+              
+              <section>
+		        <h2 class="method_title">일하는 방식</h2>
+		        <svg  id="method_svg">
+		            <path d="M50,100 L400,100 L400,300 L50,300 Z" fill="transparent" stroke="#333"/>
+		            <path d="M450,100 L800,100 L800,300 L450,300 Z" fill="transparent" stroke="#333"/>
+		            <path d="M850,100 L1200,100 L1200,300 L850,300 Z" fill="transparent" stroke="#333"/>
+		            <text x="100" y="100" style="font-size: 18pt; font-weight: bold;">
+		                <tspan x="170" y="210" fill="#555">자기주도성</tspan>
+		                <tspan x="574" y="210" fill="#555">공개 공유</tspan>
+		                <tspan x="930" y="210" fill="#555">수평 커뮤니 케이션</tspan>
+		            </text>
+		        </svg>
+		      </section>
+              
               <article>
                  <div id="walk">
                   <h2 >걸어온길</h2>
@@ -103,5 +118,10 @@
             <%@ include file = "footer.jsp"%>
         </footer>
     </div>
+    
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/vivus.min.js"></script>
+    <script src="js/svg.js"></script>
+    
 </body>
 </html>

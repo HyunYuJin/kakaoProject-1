@@ -1,6 +1,11 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 
-*{margin: 0; padding: 0;}
+*{margin: 0; padding: 0; font-family: 'Nanum Gothic', sans-serif;}
+
+*:focus {
+    outline: none;
+}
 
 ul li{
     list-style: none;
@@ -13,8 +18,10 @@ a{
 html, body {height: 100%; margin: 0; padding: 0; } 
 
 #wrap{
-    width: 1100px;
+    width: 100%;
+    min-height: 100%;
     margin: 0 auto;
+    position: relative;
 }
 
 header nav{
@@ -23,68 +30,125 @@ header nav{
     background: #fff;
 }
 
-header nav ul li{
+header nav.fixed{
+   position: fixed;
+   left: 0;
+   top: 0;
+   margin: 0;
+   z-index: 9999;
+   
+}
+
+header nav > ul > li{
     float: left;
     width: 12%;
     height: 70px;
     text-align: center;
-    position: relative;
 }
 
-header nav ul li a{
-    text-decoration: none;
-    color: #000;
-    line-height: 70px;
-    font-size: 13pt;
-    font-weight: bold;
-    display: block;
+.key{
+   width: 100%;
 }
 
-header nav ul li a img{
-    width: 130px;
+.menu_lion{
+   float: left;
 }
 
-header nav ul ul{
-    display: none;
-    position: absolute;
-    border: 1px solid #000;
-    color: #fff;
-    width: 100%;
+.menu_lion:hover .menu_submenu{
+   display: block;
 }
 
-header nav ul ul li{
-    width: 100%;
-    height: 50px;
-    border-bottom: 1px solid #000;
+.menu_lion > a{
+   display: block;
+   position: relative;
+   line-height: 70px;
 }
 
-header nav ul ul li a{
-    font-size: 9pt;
-    line-height: 50px;
+.menu_title{
+   position: relative;
+   font-size: 1.2em;
+   color: #444;
+   font-weight: bold;
 }
 
-header nav ul ul li:last-child{
-    border-bottom: 0;
+.menu_submenu{
+   display: none;
 }
 
-header nav ul li:hover ul{
-    display: block;
+.menu_category{
+   overflow: hidden;
+   position: absolute;
+   background: #f7f7f7;
+}
+
+.menu_item{
+   float: left;
+}
+
+.submenu_row{
+   overflow: hidden;
+}
+
+.item_list{
+   width: 150px;
+   margin: 8px;
+   display: block;
+   color: #444;
+}
+
+.item_list:hover{
+   color: #333;
+   font-weight: bold;
+}
+
+.menu_item.thumb{
+   float: right;
+   width: 240px;
+}
+
+.submenu_thumb img{
+   width: 100%;
+}
+
+.thumb_text{
+   font-size: 0.8em;
+   font-weight: bold;
+}
+
+.menu_category.jG{
+   left: 58%;
+}
+
+.menu_category.frodo{
+   left: 68%;
 }
 
 section{
+   width: 100%;
     min-height: 100%;
+    float: left;
+    padding-bottom: 200px;
+    margin-top: 70px;
 }
 
 .keyimage img{
-    width: 100%;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
 }
 
 .gnb{
-    margin-top: 30px;
+   width: 90%;
+   margin: 0 auto;
+    margin-top: 50px;
     height: 70px;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     clear: both;
+}
+
+.gnb article{
+   float: left;
 }
 
 .gnb ul li{
@@ -110,8 +174,19 @@ section{
     color: #1e3443;
 }
 
+#best{
+   width: 90%;
+   margin: 0 auto;
+}
+
+#product_wrap{
+   width: 90%;
+   margin: 0 auto;
+   clear: both;
+}
+
 .viewFirst{
-    width: 300px;
+    width: 20%;
     height: 200px;
     border: 10px solid #fff;
     margin: 23px;
@@ -122,100 +197,99 @@ section{
     position: relative;
     overflow: hidden;
 }
-			
+         
 
 .viewFirst .mask{
-	width: 300px;
-	height: 200px;
-	background: rgba(225, 225, 225, 0.8);
-	position: absolute;
-	top: 0;
-	left: 0;
+   width: 300px;
+   height: 200px;
+   background: rgba(225, 225, 225, 0.8);
+   position: absolute;
+   top: 0;
+   left: 0;
 }
 
 
 .mask h2{
-	color: #332805;
-	margin-top: 20px;
-	background: rgba(255, 205, 0, 0.7);
-	padding: 10px;
-	font-size: 17px;
+   color: #332805;
+   margin-top: 20px;
+   background: rgba(255, 205, 0, 0.7);
+   padding: 10px;
+   font-size: 17px;
 }
 
 .mask p{
-	color: #000;
-	font-size: 12px;
-	padding: 10px 20px 10px;
+   color: #000;
+   font-size: 12px;
+   padding: 10px 20px 10px;
     margin-top: 10px;
 }
 
 .mask a{
-	background: #332805;
+   background: #332805;
     margin-top: 10px;
-	padding: 7px 14px;
-	text-transform: uppercase;
-	box-shadow: 0 0 1px #000;
-	display: inline-block;
+   padding: 7px 14px;
+   text-transform: uppercase;
+   box-shadow: 0 0 1px #000;
+   display: inline-block;
     color: #fff;
     font-size: 9pt;
 }
 
 .viewFirst img{
-	transition: all 0.2s linear;
+   transition: all 0.2s linear;
 }
 .viewFirst:hover img{
-	transform: scale(1.1);
+   transform: scale(1.1);
 }
 
 /*롤오버 배경*/
 .viewFirst .mask{
-	opacity: 0;
-	transition: all 0.4s ease-in-out;
+   opacity: 0;
+   transition: all 0.4s ease-in-out;
 }
 .viewFirst:hover .mask{
-	opacity: 1;
+   opacity: 1;
 }
 
 /*롤오버 되기 전 상태*/
 .viewFirst h2{
-	text-transform: uppercase;
-	transform: translateY(-100px);
-	transition: all 0.2s ease-in-out;
-	opacity: 0;
+   text-transform: uppercase;
+   transform: translateY(-100px);
+   transition: all 0.2s ease-in-out;
+   opacity: 0;
 }
 .viewFirst p{
-	transform: translateY(100px);
-	transition: all 0.3s ease-in-out;
-	opacity: 0;
+   transform: translateY(100px);
+   transition: all 0.3s ease-in-out;
+   opacity: 0;
 }
 .viewFirst a{
-	transform: translateY(70px);
-	transition: all 0.2s 0.4s ease-in-out;
-	opacity: 0;
+   transform: translateY(70px);
+   transition: all 0.2s 0.4s ease-in-out;
+   opacity: 0;
 }
 
 /*롤오버 상태*/
 .viewFirst:hover h2{
-	transform: translateY(0); /*원래자리로 다시 되돌아가게 해준다.*/
-	opacity: 1;
+   transform: translateY(0); /*원래자리로 다시 되돌아가게 해준다.*/
+   opacity: 1;
 }
 .viewFirst:hover p{
-	transform: translateY(0);
-	opacity: 1;
+   transform: translateY(0);
+   opacity: 1;
 }
 .viewFirst:hover a{
-	transform: translateY(0);
-	opacity: 1;
+   transform: translateY(0);
+   opacity: 1;
 }
 
 .popular{
-    margin-top: 20px;
-    height: 350px;
+    margin-top: 50px;
 }
 
 .popular ul li{
     width: 20%;
-    border: 1px solid #ccc;	
+    border: 1px solid #ccc;   
     float: left;
     box-sizing: border-box;
     margin-bottom: 100px;
@@ -226,17 +300,35 @@ section{
     width: 100%;
 }
 
+/* 주문 내역 */
+#list{
+   width: 90%;
+   height: 400px;
+   margin: 0 auto;
+   float: inherit;
+   margin-top: 50px;
+}
+
+#list > h3{
+   margin-top: 80px;
+   padding-left: 10%;
+}
+
 footer{
-    width: 1100px;
+    width: 100%;
     height: 200px;
+    background: #fff;
     clear: both;
-    margin-top: 50px;
     font-size: 10pt;
+    float: left;
     bottom: 0;
+    margin-top: -100px; /* footer 위에 있는 요소들에는 다 padding-bottom: 200px;을 준다. (상위 요소 선택자 알아내기) */
 }
 
 footer .footer_p{
-    float: left;
+   float: left;
+   bottom: 0;
+   padding-left: 10%;
 }
 
 footer .footer_p p{
@@ -245,6 +337,7 @@ footer .footer_p p{
 
 footer .friends{
     float: right;
+    padding-right: 10%;
 }
 
 .footer_p, .friends{
@@ -252,13 +345,13 @@ footer .friends{
 }
 
 table{
-    width: 1000px;
+    width: 80%;
     margin: 0 auto;
     border: 0;
     border-spacing: 0;
     border-collapse: collapse;
     margin-top: 80px;
-    border-top: 1px solid #ccc;
+    text-align: center;
 }
 
 tr{
@@ -293,11 +386,16 @@ td{
 .back{
     padding: 5px 10px;
     border: 0;
-    margin: 30px;
+    margin-right: 10%;
+    margin-top: 30px;
     float: right;
 }
 
 #footer{
     position: fixed;
     bottom: 0;
+}
+
+#coin_form{
+   float: none;
 }

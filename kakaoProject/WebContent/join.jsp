@@ -14,44 +14,45 @@
         <script>
         function mysubmit(num)
         {
-        	
-        	document.newMemberForm.action = 'memberInsert.do';
-        	
-        	document.newMemberForm.submit();
+           
+           document.newMemberForm.action = 'memberInsert.do';
+           
+           document.newMemberForm.submit();
         }
         
         function idCheck()
         {
-        	var this_id = document.getElementById("id").value;
-        	$.ajax
+           var this_id = document.getElementById("id").value;
+           $.ajax
             (
-  	
-         		{      			
-         			type : "POST",
-            		url : "idCheck.do",
-            		data :
-           			{
-           				id : this_id
-           			},
-           			success : function(result)
-           			{
-           				if(result == 0)
-           					{
-           					$("#errorM").append('<p>아이디 중복</p>');
-           					}
-           				else if(result == 1)
-           					{
-           					$("#errorM").append('<p>아이디  사용 가능</p>');
-           					}
-           			}
-         		}
-            );   	
+     
+               {               
+                  type : "POST",
+                  url : "idCheck.do",
+                  data :
+                    {
+                       id : this_id
+                    },
+                    success : function(result)
+                    {
+                       if(result == 0)
+                          {
+                    	  $("#errorM").empty();
+                          $("#errorM").append('<p>아이디 중복</p>');
+                          }
+                       else if(result == 1)
+                          {
+                    	  $("#errorM").empty();
+                          $("#errorM").append('<p>아이디  사용 가능</p>');
+                          }
+                    }
+               }
+            );      
         }
         </script>  
 </head>
 <body>
-		<div id = "errorM">
-		</div>
+      
          <div id="wrap">
          <header>
            <%@ include file="header.jsp" %>
@@ -76,7 +77,8 @@
                 <th>아이디 *</th>
                 <td class="put">
                     <input type="text" id="id" name="id">${msg} (6~12자 이내)
-                    <button type = "button" onclick = "idCheck();">중복확인</button>
+                    <button type = "button" onclick = "idCheck();" class="doubleCheck">중복확인</button>
+                    <div class="doubleCheck_div" id = "errorM"></div>
                    <!--  <input type="button" value="중복확인" onClick = "mysubmit(1);"> -->
                 </td>
             </tr>
@@ -137,13 +139,13 @@
                 </tr>             
             </table>
             <div class="btnArea">
-                <button type = "button" onclick = "mysubmit();">회원가입</button>
-                <a href=""><input type="reset" value="회원가입취소" class="btn2"></a>
+                <button type = "button" onclick = "mysubmit();" class="btn1">회원가입</button>
+               
             </div>
            </form> 
         <footer>
             <%@ include file="footer.jsp" %>
         </footer>      
-        </div>	          
+        </div>             
     </body>
 </html>

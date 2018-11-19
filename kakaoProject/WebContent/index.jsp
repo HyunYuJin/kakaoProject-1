@@ -4,6 +4,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
@@ -36,14 +37,14 @@
         	<img src="images/slide1.gif">
             <div class="carousel-caption">
             	<h3>KaKao</h3>
-                <p>웹서비스개발</p>
+                <p>Connect Everything” 새로운 연결, 더 나은 세상</p>
             </div>
         </div>
         <div class="item">
         	<img src="images/slide2.gif">
             <div class="carousel-caption">
             	<h3>KaKao</h3>
-                <p>2조 자율프로젝트</p>
+                <p>카카오는 데이터의 연결과 보호의 균형을 위해 언제나 최선을 다 하겠습니다.</p>
             </div>
         </div>
         <div class="item">
@@ -125,54 +126,54 @@
                 <div id="kakaoService">
                    <p>카카오 서비스</p>
                     <div class="daum">
-                        <a href="#"><img src="images/daum.png" alt="daum"></a>
+                        <a href="https://www.daum.net/"><img src="images/daum.png" alt="daum"></a>
                         <p class="serviceName">Daum</p>
                         <p>검색포털 서비스</p>
                     </div>
                     <div class="kakaotalk">
-                        <a href="#"><img src="images/kakaotalk.png" alt="kakaotalk"></a>
+                        <a href="https://www.kakaocorp.com/service/KakaoTalk"><img src="images/kakaotalk.png" alt="kakaotalk"></a>
                         <p class="serviceName">카카오톡</p>
                         <p>사람과 세상<br>
                         그 이상의 연결</p>
                     </div>
                     <div class="kakaostroy">
-                        <a href="#"><img src="images/kakaostory.png" alt="kakaostory"></a>
+                        <a href="https://story.kakao.com/ch/kakaostory"><img src="images/kakaostory.png" alt="kakaostory"></a>
                         <p class="serviceName">카카오스토리</p>
                         <p>소소한 일상 속<br>
                         소소한 이야기</p>
                     </div>
                     <div class="kakaogame">
-                        <a href="#"><img src="images/kakaogame.png" alt="kakaogame"></a>
+                        <a href="https://game.kakao.com/"><img src="images/kakaogame.png" alt="kakaogame"></a>
                         <p class="serviceName">카카오게임</p>
                         <p>함께해요!<br>
                         카카오게임</p>
                     </div>
                     <div class="kakaoNavi">
-                        <a href="#"><img src="images/kakaonavi.png" alt="kakaonavi"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.locnall.KimGiSa&hl=ko"><img src="images/kakaonavi.png" alt="kakaonavi"></a>
                         <p class="serviceName">카카오내비</p>
                         <p>내비게이션의<br>
                         새로운 진화</p>
                     </div>
                     <div class="kakaoFriends">
-                        <a href="#"><img src="images/kakaofriends.png" alt="kakaofriends"></a>
+                        <a href="https://store.kakaofriends.com/kr/index"><img src="images/kakaofriends.png" alt="kakaofriends"></a>
                         <p class="serviceName">카카오프렌즈</p>
                         <p>일상속 즐거운!<br>
                         카카오프렌즈</p>
                     </div>
                     <div class="kakaoSubway">
-                        <a href="#"><img src="images/kakaosub.png" alt="kakaosub"></a>
+                        <a href="https://play.google.com/store/apps/details?id=net.orizinal.subway&hl=ko"><img src="images/kakaosub.png" alt="kakaosub"></a>
                         <p class="serviceName">카카오지하철</p>
                         <p>지하철타는<br>
                         똑똑한습관</p>
                     </div>
                     <div class="daumMail">
-                        <a href="#"><img src="images/daummail.png" alt="daummail"></a>
+                        <a href="https://mail.daum.net/login?url=https%3A%2F%2Fmail.daum.net%2F"><img src="images/daummail.png" alt="daummail"></a>
                         <p class="serviceName">Daum메일</p>
                         <p>내 하루의 시작<br>
                         Daum 메일</p>
                     </div>
                     <div class="kakaoMusic">
-                        <a href="#"><img src="images/kakaomusic.png" alt="kakaomusic"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.kakao.music&hl=ko"><img src="images/kakaomusic.png" alt="kakaomusic"></a>
                         <p class="serviceName">카카오뮤직</p>
                         <p>친구들과 함께<br>
                         듣는 음악</p>

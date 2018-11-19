@@ -2,8 +2,12 @@
 
 *{margin: 0; padding: 0;}
 
+input{
+   border: 0;
+}
+
 article{
-    width: 1300px;
+    width: 90%;
     height: auto;
     margin: 0 auto;
     border: 1px solid #ccc;
@@ -12,8 +16,7 @@ article{
 }
 
 article > p{
-    margin-top: 20px;
-    margin-left: 50px;
+    margin: 50px;
     font-size: 1.5em;
     font-weight: bold;
 }
@@ -29,15 +32,15 @@ article > p{
     width: 600px;
     height: 40px;
     margin-left: 100px;
-    border: 1px solid #332805;
+    border: 1px solid #bbb;
     border-radius: 3px;
 }
 
 #search .SearchButton{
     width: 100px;
     height: 40px;
-    border: 1px solid #332805;
-    background-color: #ffcd00;
+    border: 1px solid #bbb;
+    background-color: #eee;
     color: #332805;
     border-radius: 3px;
     font-weight: bold;
@@ -67,9 +70,22 @@ tr{
 }
             
 th{
+   width: 5%;
     font-size: 10pt;
     background: #fbfafa;
     border-left: 1px solid #cccccc;
+}
+
+th:nth-child(1){
+   width: 7%;
+}
+
+th:nth-child(4){
+   width: 10%;
+}
+
+th:nth-child(5){
+   width: 15%;
 }
 
             
@@ -157,17 +173,55 @@ section{
 .update input{
     font-size: 10pt;
     padding: 5px 10px;
+    background: #eee;
+    border: 0;
 }
 
 .delete input{
     font-size: 10pt;
     padding: 5px 10px;
+    background: #eee;
+    border: 0;
 }
 
 .second{
     height: 200px;
 }
 
-/*#sort{
-    padding: 10px 20px;
-}*/
+#uploadForm{
+   width: 100%;
+   margin: 0 auto;
+   border: 0;
+   margin-top: 50px;
+}
+
+.uploadDiveWrap{
+   width: 100%;
+   height: 250px;
+}
+
+.uploadDiveWrap div{
+   width: 16.3%;
+   float: left;
+   border: 1px solid #bbb;
+   box-sizing: border-box;
+   margin-right: 5px;
+}
+
+.uploadDiveWrap div:last-child{
+   margin-right: 0;
+}
+
+.uploadDiveWrap div img{
+   width: 100%;
+   padding-bottom: 5px;
+   border-bottom: 1px solid #bbb;
+}
+
+.uploadDiveWrap input{
+   margin: 5px;
+}
+
+.upload{
+   padding: 2px 5px;
+}

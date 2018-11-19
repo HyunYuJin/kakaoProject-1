@@ -10,21 +10,21 @@ table{
 }
 
 tr{
-    border: 1px solid #332805;
+    border: 1px solid #bbb;
     display: table-row;
     vertical-align: inherit;
-    border-color: #332805;
+    border-color: #bbb;
 }
             
 th{
     font-size: 11pt;
-    background: #ffcd00;
+    background: #eee;
     width: 120px;
 }
             
 td{
     padding: 20px 0 20px 30px;
-    border-left: 1px solid #332805;
+    border-left: 1px solid #bbb;
 }
 
 input{
@@ -49,18 +49,20 @@ select{
 
 #submit{
     width: 150px;
+    background: #fff;
     margin-left: 150px;
     margin-top: 20px;
-    background: #ffcd00;
     font-size: 10pt;
     font-weight: bold;
+    border: 1px solid #bbb;
 }
 
 #delete{
     width: 150px;
-    background: #ffcd00;
+    background: #fff;
     font-size: 10pt;
     font-weight: bold;
+    border: 1px solid #bbb;
 }
 
 h3{

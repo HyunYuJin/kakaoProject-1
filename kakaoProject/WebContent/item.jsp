@@ -24,6 +24,7 @@
 	ArrayList<ProductVO> list = service.getProductList(category, cha);
 	ArrayList<ProductVO> orderList = service.getProductListOrder(category, cha);
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -31,6 +32,23 @@
     <title><%=category%></title>
     <link rel="icon" href="images/peach.jpg" type="image/x-icon">
     <link rel="stylesheet" href="css/category.css" type="text/css">
+    <link rel="stylesheet" href="slick-1.8.1/slick/slick.css">
+	<link rel="stylesheet" href="slick-1.8.1/slick/slick-theme.css">
+	<link rel="stylesheet" href="css/slider.css">
+	<script src="js/jquery-2.2.0.min.js"></script>
+	<script src="slick-1.8.1/slick/slick.js"></script>
+	<script type="text/javascript">
+    $(document).on('ready', function() {
+      $(".center").slick({
+		variableWidth: true,
+        dots: true,
+        infinite: true,
+        centerMode: true,
+        slidesToShow: 5,
+        slidesToScroll: 3
+      });
+    });
+	</script>
 </head>
 <body>
     <div id="wrap">
@@ -54,9 +72,8 @@
             </article>
             <article>
                <div class="popular">
-                <h3>BEST5</h3>
-                <div class="best">
-                <ul>
+                <h3>BEST5</h3>                
+                <section class="center slider" id="container">
                 <%  
                 	if(orderList.size() < 5 && orderList.size() > 0)
                 	{
@@ -65,7 +82,7 @@
                 			ProductVO vo = orderList.get(x);
                 			ImageVO mainimage = service_2.getMainImage(vo.getNum());
                 			%>
-                			<li><a href="M_information.jsp?num=<%=vo.getNum()%>"><img src=<%=mainimage.getSrc()%>></a></li>
+                			<div><a href="M_information.jsp?num=<%=vo.getNum()%>"><img src=<%=mainimage.getSrc()%>></a></div>
                 		<%
                 		}
                 	}
@@ -88,12 +105,11 @@
             				System.out.println("mainimage is null");
             			}
                 	%>
-                		<li><a href="M_information.jsp?num=<%=vo.getNum()%>"><img src=<%=mainimage.getSrc()%>></a></li>
+                		<div><a href="M_information.jsp?num=<%=vo.getNum()%>"><img src=<%=mainimage.getSrc()%>></a></div>
                 	<%}
                 	}
                 %>
-                </ul>
-                </div>
+                </section>              
                 </div>
             </article>
             <article>

@@ -18,6 +18,14 @@ public class RegisterCoinController implements Controller {
 		PrintWriter out = res.getWriter();
 		MemberService service = MemberService.serviceGetInstance();
 		req.setCharacterEncoding("UTF-8");
+		if(req.getParameter("coin") == "")
+		{
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('원하시는 초코를 입력해주세요.');");
+			out.println("location='coin.jsp';");
+			out.println("</script>");
+			return;
+		}
 		int coin = Integer.parseInt(req.getParameter("coin"));
 		if(coin < 0 )
 		{

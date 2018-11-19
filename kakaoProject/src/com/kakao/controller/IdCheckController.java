@@ -26,12 +26,15 @@ public class IdCheckController implements Controller{
 		if(!value)
 		{
 			res.getWriter().write("0"); //아이디 중복 존재
-			return;
+			//return;
 		}
 		/*req.setAttribute("id",id);
 		req.setAttribute("msg","사용할 수 있는 아이디입니다.");
 		HttpUtil.forward(req, res,"join.jsp");*/
-		res.getWriter().write("1"); //아이디 사용 가능
+		else
+		{
+			res.getWriter().write("1");
+		}//아이디 사용 가능
 		/*out.println("<script language = 'javascript'>");
 		out.print("alert('사용가능한 아이디입니다.');");
 		out.print("history.back(-1)");

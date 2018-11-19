@@ -29,7 +29,7 @@
 		}
 	}
 	ArrayList<ImageVO> list_i = service_2.getImageList(product.getNum());
-	String path = request.getRealPath("/쇼핑몰/쇼핑몰/test");
+	String path = request.getRealPath("/");
 	/* ImageVO mainImage = service_2.getImageList(product.getNum()); */
 %>
 <!DOCTYPE html>
@@ -70,8 +70,7 @@
                                     <option value="jay_g">Jay-G</option>
                                     <option value="frodo">Frodo</option>
                                 </select>
-                            </td>
-                            
+                            </td>                        
                         </tr>
                         <tr>
                             <th class="first">상품설명</th>
@@ -88,40 +87,50 @@
                             </td>
                         </tr>
                     </table>
-                   <%
-                   int n = 1;
-                   String name = "file" + n;
-                    for(ImageVO i : list_i)
-                    {                   	
-                    	n++;
-                    	String realPath = path + i.getSrc();
-                    	/* if(i.getSrc() == null)
-                    		realPath = null; */
-                    	%>
-                    	<input type = "file" size=40 value = "<%=realPath%>"><br>
-                    	
-                    	<%
-                    }
-                    while(n <= 6)
-                    {%>
-                    	<input type = "file" size=40><br>
-                    	<input type = "hidden" name = "<%=name%>" value ="-1">                  
-                    <%
-                    n++;
-                    }
-                    %>                     
-                  
+                    <article id="uploadForm">                    
+                              <div class="uploadDiveWrap">                           	
+                              	<%
+			                   int n = 1;
+			                   String name = "file" + n;
+			                   String image = "image" + n;
+			                    for(ImageVO i : list_i)
+			                    {
+			                    	name = "file" + n;
+			                    	image = "image" + n;
+			                    	n++;
+			                    	String realPath = path + i.getSrc();			                    	
+			                    	%>
+			                    	<div>
+			                    	<img src = <%=i.getSrc()%>>
+			                    	<input type = "hidden" name = <%=name%> value = "<%=i.getNum()%>">
+			                    	<input type = "file" name = <%=image%> size =40>      
+			                    	</div>       	
+			                    	<%
+			                    }
+			                    while(n <= 6)
+			                    {
+			                    	name = "file" + n;
+			                    	image = "image" + n;
+			                    %>                    	
+			                    	<div>			                    	
+			                    	<input type = "hidden" name = <%=name%> value ="0">           
+			                    	<input type = "file" name =  <%=image%> size=40>
+			                    	</div>       
+			                    <%
+			                    n++;
+			                    }
+			                    %>                          
+                              </div>                       
+                        </article>   
                     <div class="button1">
                           <input type="hidden" name="num" value = "<%=product.getNum()%>">
-                            <input type="submit" value="저장">
-                        </div>
+                          <input type="submit" value="저장">
                     </div>
-               </form>
-            </article>
-        </section>
+                     </form>
+                    </div>
         <footer>
            <%@ include file = "footerAdmin.jsp" %>
         </footer>
-    </div>
+    
 </body>
 </html>

@@ -31,7 +31,7 @@
             <nav>
                 <ul>
                     <li><a href="AboutUS.jsp">기업소개</a></li>
-                    <li><a href="#">기업뉴스</a></li>
+                    <li><a href="OurNews.jsp">기업뉴스</a></li>
                     <li><a href="shopping.jsp">쇼핑몰</a></li>
                     <li><a href="Apply.jsp">입사지원</a></li>
                 </ul>

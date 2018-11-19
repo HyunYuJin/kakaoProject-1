@@ -10,6 +10,7 @@ public class ImageService {
 	KakaoDao dao = KakaoDao.getInstance();
 	private static ImageService service = new ImageService();
 	private ImageService() {}
+	
 	public static ImageService getInstance()
 	{
 		return service;
@@ -18,6 +19,11 @@ public class ImageService {
 	public void insertImages(String saveDir, ArrayList<String> fileNames,int productNum)
 	{
 		dao.insertImages(saveDir,fileNames,productNum);
+	}
+	
+	public void insertImage(String saveDir, String fileName,int productNum)
+	{
+		dao.insertImages(saveDir,fileName,productNum);
 	}
 	public ImageVO getMainImage(int productNum)
 	{
@@ -32,6 +38,17 @@ public class ImageService {
 	public ArrayList<ImageVO> getImageList(int productNum)
 	{
 		return dao.getImageList(productNum);
+	}
+	
+	public void deleteImage(int imageNum)
+	{
+		dao.deleteImage(imageNum);
+	}
+	
+	public void deleteImages(int productNum) //한번에 다지울때
+	{
+		
+		dao.deleteImages(productNum);
 	}
 	
 }

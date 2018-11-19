@@ -7,27 +7,27 @@
     import = "java.util.ArrayList"
     import = "com.kakao.controller.HttpUtil"%>
 <% 
-	if(session.getAttribute("admin") == null)
-	{
-		HttpUtil.forward(request, response,"index.jsp");
-		return;
-	}
+   if(session.getAttribute("admin") == null)
+   {
+      HttpUtil.forward(request, response,"index.jsp");
+      return;
+   }
 %>
 <%
-	ProductService service = ProductService.serviceGetInstance();
-	ImageService service_2 = ImageService.getInstance();
-	ArrayList<ProductVO> list = service.getProductList();
-	/* ProductVO product = null;
-	if(request.getAttribute("sProduct") != null)
-	{
-		System.out.println("product is not null");
-		product = (ProductVO) request.getAttribute("sProduct");
-	} */
-	ArrayList<ProductVO> slist = (ArrayList<ProductVO>) request.getAttribute("slist");
-	if(slist == null)
-	{
-		System.out.println("slist not null");
-	}
+   ProductService service = ProductService.serviceGetInstance();
+   ImageService service_2 = ImageService.getInstance();
+   ArrayList<ProductVO> list = service.getProductList();
+   /* ProductVO product = null;
+   if(request.getAttribute("sProduct") != null)
+   {
+      System.out.println("product is not null");
+      product = (ProductVO) request.getAttribute("sProduct");
+   } */
+   ArrayList<ProductVO> slist = (ArrayList<ProductVO>) request.getAttribute("slist");
+   if(slist == null)
+   {
+      System.out.println("slist not null");
+   }
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -64,84 +64,91 @@
                                 <th>
                             </tr>
                             <%
-                            	if(slist != null)
-                            	{
-                            		for(ProductVO vo : slist)
-                            		{
-                            	%>                            	
-                            		<tr>
-		                                <td><a href = "M_informationAdmin.jsp?num=<%=vo.getNum()%>"><%=vo.getName()%></a></td>
-		                                <td><%=vo.getNum()%></td>
-		                                <td><%=vo.getPrice()%></td>
-		                                <td><%=vo.getDetail()%></td>
-		                                <td>
-		                                <%
-		                                ArrayList<ImageVO> imagelist = service_2.getImageList(vo.getNum());
-		                                for(ImageVO image : imagelist)
-		                                {%>
-		                                	<%=image.getSrc()%>
-		                                	&nbsp;/&nbsp;		                                	
-		                                <%}
-		                                %>
-		                                </td>		                              
-		                                <td class="update">
-                                    	<a href="ProductUpdateAdmin.jsp?num=<%=vo.getNum()%>">
+                               if(slist != null)
+                               {
+                                  for(ProductVO vo : slist)
+                                  {
+                               %>                               
+                                  <tr>
+                                      <td><a href = "M_informationAdmin.jsp?num=<%=vo.getNum()%>"><%=vo.getName()%></a></td>
+                                      <td><%=vo.getNum()%></td>
+                                      <td><%=vo.getPrice()%></td>
+                                      <td><%=vo.getDetail()%></td>
+                                      <td>
+                                      <%
+                                      ArrayList<ImageVO> imagelist = service_2.getImageList(vo.getNum());
+                                      for(ImageVO image : imagelist)
+                                      {%>
+                                         <%-- <div>
+                                         	<img src = <%=image.getSrc()%>>
+                                         </div> --%>
+                                         <%=image.getSrc()%>
+                                         &nbsp;/&nbsp;                                         
+                                      <%}
+                                      %>
+                                      </td>                                    
+                                      <td class="update">
+                                       <a href="ProductUpdateAdmin.jsp?num=<%=vo.getNum()%>">
                                         <input type="button" value="수정">
-                                    	</a>
-                                		</td>
-		                                <td class="delete">
-			                                <%-- <a href="productDelete.do?num=<%=vo.getNum()%>"> --%>
-			                                <form action = "productDelete.do" method = "post">
-			                                	<input type = "hidden" value = "<%=vo.getNum()%>" name = "num">
-	                                        	<input type="submit" value="삭제">
-	                                        </form>
-                                    	</a>
-		                                </td>
-                            		</tr>
-                            		<%}
-                            	}
-                            	else
-                            	{
-                            	for(ProductVO vo : list)
-                            	{%>
-	                            	<tr>
-		                                <td><a href = "M_informationAdmin.jsp?num=<%=vo.getNum()%>"><%=vo.getName()%></a></td>
-		                                <td><%=vo.getNum()%></td>
-		                                <td><%=vo.getPrice()%></td>
-		                                <td><%=vo.getDetail()%></td>
-		                                <td>
-		                                <%
-		                                ArrayList<ImageVO> imagelist = service_2.getImageList(vo.getNum());
-		                                for(ImageVO image : imagelist)
-		                                {%>
-		                                	<%=image.getSrc()%>
-		                                	&nbsp;/&nbsp;		                                	
-		                                <%}
-		                                %>
-		                                </td>
-		                                <td class="update">
-                                    	<a href="ProductUpdateAdmin.jsp?num=<%=vo.getNum()%>">
+                                       </a>
+                                      </td>
+                                      <td class="delete">
+                                         <%-- <a href="productDelete.do?num=<%=vo.getNum()%>"> --%>
+                                         <form action = "productDelete.do" method = "post">
+                                            <input type = "hidden" value = "<%=vo.getNum()%>" name = "num">
+                                              <input type="submit" value="삭제">
+                                           </form>
+                                       </a>
+                                      </td>
+                                  </tr>
+                                  <%}
+                               }
+                               else
+                               {
+                               for(ProductVO vo : list)
+                               {%>
+                                  <tr>
+                                      <td><a href = "M_informationAdmin.jsp?num=<%=vo.getNum()%>"><%=vo.getName()%></a></td>
+                                      <td><%=vo.getNum()%></td>
+                                      <td><%=vo.getPrice()%></td>
+                                      <td><%=vo.getDetail()%></td>
+                                      <td>
+                                      <%
+                                      ArrayList<ImageVO> imagelist = service_2.getImageList(vo.getNum());
+                                      for(ImageVO image : imagelist)
+                                      {%>
+                                         <%-- <div>
+                                         	<img src = <%=image.getSrc()%>>
+                                         </div> --%>
+                                         <%=image.getSrc()%>
+                                         &nbsp;/&nbsp;                                         
+                                      <%}
+                                      %>
+                                      </td>
+                                      <td class="update">
+                                       <a href="ProductUpdateAdmin.jsp?num=<%=vo.getNum()%>">
                                         <input type="button" value="수정">
-                                    	</a>
-                                		</td>
-		                                <td class="delete">
-		                                    <%-- <a href="productDelete.do?num=<%=vo.getNum()%>"> --%>
-                                        	<form action = "productDelete.do" method = "post">
-			                                	<input type = "hidden" value = "<%=vo.getNum()%>" name = "num">
-	                                        	<input type="submit" value="삭제">
-	                                        </form>
-                                    	</a>
-		                                </td>
-                            		</tr>			                       
-                            	<%}
-                            	}
+                                       </a>
+                                      </td>
+                                      <td class="delete">
+                                          <%-- <a href="productDelete.do?num=<%=vo.getNum()%>"> --%>
+                                           <form action = "productDelete.do" method = "post">
+                                            <input type = "hidden" value = "<%=vo.getNum()%>" name = "num">
+                                              <input type="submit" value="삭제">
+                                           </form>
+                                       </a>
+                                      </td>
+                                  </tr>                                
+                               <%}
+                               }
                             %>
                         </table>
+                        
                         <div class="button1">
-                        	<a href = "ProductInsert.jsp">
-			            	<input type="submit" value="추가">
-			            	</a>
-			            </div>
+                           <a href = "ProductInsert.jsp">
+                        <input type="submit" value="추가">
+                        </a>
+                     </div>
                     </div>
             </article>
         </section>

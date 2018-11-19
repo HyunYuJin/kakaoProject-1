@@ -1,6 +1,7 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 
-*{padding: 0; margin: 0;}
+*{margin: 0; padding: 0; font-family: 'Nanum Gothic', sans-serif;}
 
 .join{
     font-size: 14pt;
@@ -78,6 +79,21 @@ td{
 .agree p{
     font-size: 12px;
 }
+
+.doubleCheck{
+   padding:5px;
+   border: 0;
+   margin-left: 10px;
+   background: #eee;
+}
+
+.doubleCheck_div{
+   width: auto;
+   display: inline;
+   margin-left: 10px;
+   padding: 5px;
+   font-size: 10pt;
+}
             
 .check{
     padding: 7px 0 0 0;
@@ -95,6 +111,7 @@ td{
     width: 140px;
     height: 40px;
     background: #ffcd00;
+    border: 0;
 }
             
 .btn2{
@@ -102,4 +119,5 @@ td{
     color: #fff;
     width: 140px;
     height: 40px;
+    border: 0;
 }

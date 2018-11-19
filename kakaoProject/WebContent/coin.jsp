@@ -30,7 +30,7 @@
         <header>
             <%@ include file = "headerShopping.jsp"%>
         </header>
-        <section>
+        <section id="coin_form">
         <form action="registerCho.do"method="post" id="newMemberForm">
             <div id="coin_wrap">
                 <h3>초코충전</h3>

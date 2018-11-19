@@ -34,7 +34,7 @@ if(session.getAttribute("cUser") == null)
         <header>
             <%@ include file = "headerShopping.jsp" %>
         </header>
-        <section>
+        <section id="list">
           <h3>주문내역조회</h3>
            <form action="" method="post">
             <table>

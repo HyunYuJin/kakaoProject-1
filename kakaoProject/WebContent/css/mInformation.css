@@ -5,7 +5,8 @@
 }
 
 #table_div h4{
-    margin: 50px;
+   width: 80%;
+    margin: 0 auto;
 }
 
 table{
@@ -17,7 +18,6 @@ table{
 }
 
 tr{
-    
     display: table-row;
     vertical-align: inherit;
     border-color: #7292b8;
@@ -25,29 +25,23 @@ tr{
             
 th{
     font-size: 9pt;
-    background-color: azure;
     color: #000;
     width: 120px;
-    border-bottom: 1px solid #7292b8;
-}
-
-.name{
-    border-top: 1px solid #7292b8;
+    box-shadow: 2px 1px 5px #eee;
 }
             
 td{
     padding: 10px 0 8px 10px;
-    border-bottom: 1px solid #7292b8;
+    box-shadow: 2px 1px 5px #eee;
 }
 
 .imgitem{
-    width: 450px;
+    width: 50%;
     border: 0;
 }
 
 .imgitem img{
-    width: 400px;
-    border: 1px solid #ccc;
+    width: 100%;
 }
 
 #buy{
@@ -56,21 +50,22 @@ td{
 
 #buy{
     float: right;
-    margin-right: 80px;
+    margin-right: 10%;
     margin-top: 30px;
     padding: 10px;
     border: 0;
     font-weight: bold;
-    color: #fff;
-    background: #7292b8;
+    color: #555;
+    background: #eee;
+    box-shadow: 3px 3px 5px #aaa;
 }
 
 #product_content{
-    width: 1000px;
+    width: 80%;
     height: 500px;
     margin: 0 auto;
     margin-top: 100px;
-    border: 1px solid #7292b8;
+    box-shadow: 3px 3px 5px #eee;
 }
 
 #product_content p{
@@ -83,24 +78,27 @@ td{
 }
 
 .imageN{
+   width: 80%;
     font-size: 1.3em;
     font-weight: bold;
-    margin-left: 48px;
-    margin-top: 50px;
+    padding-top: 80px;
+    margin: 0 auto;
 }
 
 #slideShow{
     height: 700px;
     line-height: 700px;
+    padding-top: 50px;
 }
 
 #slideShowBox{
-    margin-left: 48px;
     overflow: hidden;
     position: absolute;
+    left: 50%;
+    margin-left: -500px;
     width: 1000px;
     height: 600px;
-    border: 1px solid #7292b8;
+    box-shadow: 2px 1px 5px #eee;
     margin-top: 20px;
 }
 
@@ -120,5 +118,5 @@ td{
 }
 
 #prevNextButtonBox{position: relative;}
-#prevButton{position: absolute; top: 320px; left: 48px; z-index: 999;}
-#nextButton{position: absolute; top: 320px; left: 993px; z-index: 999;}
+#prevButton{position: absolute; top: 320px; left: 45%; margin-left: -500px; z-index: 999;}
+#nextButton{position: absolute; top: 320px; right: 45%; margin-right: -500px; z-index: 999;}

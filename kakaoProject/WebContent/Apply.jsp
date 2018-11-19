@@ -9,6 +9,9 @@
     <link rel="icon" href="images/lion.png" type="image/x-icon">
     <link rel="stylesheet" href="css/index.css" type="text/css">
     <link rel="stylesheet" href="css/apply.css" type="text/css">
+    <style>
+    	.path5 { animation: dash 10s linear infinite; } @-webkit-keyframes dash { to { stroke-dashoffset: 0; } }
+    </style>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
             $(function(){
@@ -66,15 +69,37 @@
                    <img src="images/applykey.gif">
                </div>
             </article>
-            <article>
-                <div id="applyProcess">
-                   <h3>영입절차</h3>
-                    <div class="step1">01>&nbsp;서류전형</div>
-                    <div class="step2">02>&nbsp;1차 인터뷰</div>
-                    <div class="step3">03>&nbsp;2차 인터뷰</div>
-                    <div class="step4">04>&nbsp;입사확정</div>
-                </div>
-            </article>
+            
+            <section id="applyProcess">
+           		<h3>영입절차</h3>
+		        <svg class="applyProcess_chart" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			        <style type="text/css">
+						.st0{fill:#ffffff;}
+						.st1{fill:#9bbbd4;}
+						.st2{fill:#fef01b;}
+						.st3{fill:#556677;}
+						.st4{fill:#302727;}
+						.st5{fill:#fff;}
+					</style>
+			   		<g><g>
+		            <path d="M0,05 L512,0 L512,510 L0,510 z" fill="transparent" stroke="#DDCFA7" stroke-width="2px" stroke-dasharray="2042 300" stroke-dashoffset="2342" class="path5" />
+			   		<circle class="st0" cx="256" cy="256" id="XMLID_13_" r="250"/>
+			   		<path class="st1" d="M480.4,355.9c1.5,0,3,0.4,4.4,1C498.4,326,506,291.9,506,256c0-98.5-57-183.7-139.8-224.4    v324.3H480.4z" id="XMLID_12_"/>
+			   		<path class="st2" d="M156.1,366.2v114.2c0,1.5-0.4,3-1,4.4C186,498.4,220.1,506,256,506    c98.5,0,183.7-57,224.4-139.8H156.1z" id="XMLID_11_"/>
+			   		<path class="st3" d="M31.6,156.1c-1.5,0-3-0.4-4.4-1C13.6,186,6,220.1,6,256c0,98.5,57,183.7,139.8,224.4V156.1    H31.6z" id="XMLID_10_"/>
+			   		<path class="st4" d="M355.9,31.6c0-1.5,0.4-3,1-4.4C326,13.6,291.9,6,256,6C157.5,6,72.3,63,31.6,145.8h324.3V31.6z    " id="XMLID_9_"/>
+			   		</g>
+			   		<text x="100" y="100" style="font-size: 18pt; font-weight: bold;">
+		                <tspan class="st5" x="170" y="100">A. 서류전형</tspan>
+		                <tspan class="st5" x="430" y="130" writing-mode="tb-rl">B. 1 차 인터뷰</tspan>
+		                <tspan class="st5" x="220" y="440">C. 2차 인터뷰</tspan>
+		                <tspan class="st5" x="85" y="210" writing-mode="tb-rl">D. 입사확정</tspan>
+		                <tspan x="190" y="270" fill="#444">카카오 크루!</tspan>
+		            </text>
+			   		</g>
+		   		</svg>
+		    </section>
+            
             <article>
                 <div id="applyMenu">
                     <h3>카카오크루가 되어주세요.</h3>

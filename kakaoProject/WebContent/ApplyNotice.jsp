@@ -38,12 +38,16 @@ if(session.getAttribute("cUser") == null)
         <header>
             <%@ include file = "header.jsp" %>
         </header>
-        <section>
-            <article>
-                <img src="images/applyNoticeKey.gif" id="Applykeyimage">
-            </article>
-            <article>
-                <ul id="group">
+        <section id="Applykeyimage">
+        	<img src="images/applyNoticeKey.png">
+        	<span class="keyimage_title">제주라이프</span>
+        	<span class="keyimage-content1">많은 카카오 크루들이 이곳에 처음 오면 충격에 빠지곤 해요. '아니 대한민국에 이런 기업이 있다니!', <br>'텃밭도 있고~ 드론도 날리고~ 실내에서 암벽등반까지?'
+        	<br>무엇을 상상하든 그 이상의  임팩트를 주는 곳! 맑은 공기와 함께 자연을 느낄 수 있는 이곳은?</span>
+        	<span class="keyimage-content2">돌하르방과 함께 자연과 함께 일할 수 있는 곳, <b>제주 스페이스</b>입니다.
+        	<br><b>Life@제주</b>, 직접 느껴보세요!</span>
+		</section>
+        <section id="category_group">
+        	<ul>
                 <%
                 for(int x = 0 ; x < list.size() ; x++)
                 {
@@ -62,13 +66,10 @@ if(session.getAttribute("cUser") == null)
                 	<li><a href="fieldSearchDivision.do?division=<%=vo.getDivision()%>"><%=vo.getDivision()%></a></li>            
                 	<%}
                 }%>
-               
-                    <!-- <li><a href="#">기술</a></li>
-                    <li><a href="#">디자인</a></li>
-                    <li><a href="#">서비스사업</a></li>
-                    <li><a href="#">스탭</a></li>
-                    <li><a href="#">브랜드마케팅</a></li> -->
-                </ul>
+            
+              </ul>
+         </section>
+         <section id="Apply_table">
                 <table>
                     <tr>
                         <th>이름</th>
@@ -127,8 +128,8 @@ if(session.getAttribute("cUser") == null)
                     }
                     %>
                 </table>
-            </article>
-        </section>
+            </section>
+        
         <footer>
             <%@ include file = "footer.jsp" %>
         </footer>

@@ -27,7 +27,7 @@
             </div>
         </form>
         
-        <footer>
+        <footer class="loginAdminFooter">
            <%@ include file = "footer.jsp" %>
         </footer>      
     </div>	     

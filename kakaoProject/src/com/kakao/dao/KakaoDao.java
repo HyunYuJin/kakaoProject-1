@@ -1386,39 +1386,7 @@ public class KakaoDao {
 
 	
 	
-	public void insertImages(String saveDir, ArrayList<String> fileNames,int productNum) {
-		// TODO Auto-generated method stub
-		Connection conn = null;
-		PreparedStatement psmt = null;
-		try
-		{
-			int n = 1;
-			conn = connect();
-			psmt = conn.prepareStatement("insert into image(src,position,productNum) values(?,?,?)");
-			for(String fileName : fileNames)
-			{
-			
-				psmt.setString(1,saveDir + "/" + fileName);
-				if(n == 1)
-				{
-					psmt.setString(2, "main");
-					n++;
-				}
-				else
-					psmt.setString(2, "sub");
-				psmt.setInt(3, productNum);
-				psmt.executeUpdate();
-			}
-		}
-		catch(Exception e)
-		{
-			System.out.println("imageinsert : dao 오류 발생 -> " + e);
-		}
-		finally
-		{
-			close(conn, psmt);
-		}
-	}
+	
 
 	public void insertProduct(ProductVO product, String saveDir, ArrayList<String> fileNames)
 	{
@@ -1453,6 +1421,104 @@ public class KakaoDao {
 			close(conn, psmt);
 			if(productNum != -1)
 				insertImages(saveDir, fileNames, productNum); //이미지 삽입으로 넘어감
+		}
+	}
+
+	public void deleteImage(int imageNum) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		try
+		{
+			conn = connect();
+			psmt = conn.prepareStatement("delete from image where num = ?");
+			psmt.setInt(1, imageNum);
+			psmt.executeUpdate();			
+		}
+		catch(Exception e)
+		{
+			System.out.println("imageDelete : dao 오류 발생 -> " + e); 
+		}
+		finally
+		{
+			close(conn, psmt);			
+		}
+	}
+
+	public void deleteImages(int productNum) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		try
+		{
+			conn = connect();
+			psmt = conn.prepareStatement("delete from image where productNum = ?");
+			psmt.setInt(1,productNum);
+			psmt.executeUpdate();			
+		}
+		catch(Exception e)
+		{
+			System.out.println("imagesDelete : dao 오류 발생 -> " + e); 
+		}
+		finally
+		{
+			close(conn, psmt);			
+		}
+	}
+	public void insertImages(String saveDir, ArrayList<String> fileNames,int productNum) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		try
+		{
+			int n = 1;
+			conn = connect();
+			psmt = conn.prepareStatement("insert into image(src,position,productNum) values(?,?,?)");
+			for(String fileName : fileNames)
+			{		
+				psmt.setString(1,saveDir + "/" + fileName);
+				if(n == 1)
+				{
+					psmt.setString(2, "main");
+					n++;
+				}
+				else
+					psmt.setString(2, "sub");
+				psmt.setInt(3, productNum);
+				psmt.executeUpdate();
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("imagesinsert : dao 오류 발생 -> " + e);
+		}
+		finally
+		{
+			close(conn, psmt);
+		}
+	}
+	
+	public void insertImages(String saveDir, String fileName, int productNum) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		try
+		{
+			int n = 1;
+			conn = connect();
+			psmt = conn.prepareStatement("insert into image(src,position,productNum) values(?,?,?)");	
+			psmt.setString(1,saveDir + "/" + fileName);
+			psmt.setString(2, "sub");
+			psmt.setInt(3, productNum);
+			psmt.executeUpdate();		
+		}
+		catch(Exception e)
+		{
+			System.out.println("imageinsert : dao 오류 발생 -> " + e);
+		}
+		finally
+		{
+			close(conn, psmt);
 		}
 	}
 	
