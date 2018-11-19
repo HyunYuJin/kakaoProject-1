@@ -16,7 +16,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class ProductInsertController implements Controller {
 
-	static HashMap<String,String> list_cha = null;
+	/*static HashMap<String,String> list_cha = null;
 	static HashMap<String,String> list_cate = null;
 	
 	public void initList()
@@ -36,7 +36,7 @@ public class ProductInsertController implements Controller {
 		list_cate.put("doll","인형");
 		list_cate.put("goods","잡화");
 		list_cate.put("jewelry","쥬얼리");
-	}
+	}*/
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -46,8 +46,7 @@ public class ProductInsertController implements Controller {
 		req.setCharacterEncoding("UTF-8");
 		int maxSize = 3 * 1024 * 1024;
 		String encoding = "UTF-8";
-		String saveDir = "C:\\dev\\workplace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\kakaoProject\\쇼핑몰\\쇼핑몰\\test";
-		System.out.println(req.getRealPath("쇼핑몰/쇼핑몰/test"));
+		String saveDir = req.getRealPath("쇼핑몰/쇼핑몰/test");
 		MultipartRequest multi = new MultipartRequest(req, saveDir, maxSize, encoding, new DefaultFileRenamePolicy());
 		ProductVO vo = new ProductVO();
 		//System.out.println(multi.getParameter("name"));
@@ -55,17 +54,15 @@ public class ProductInsertController implements Controller {
 		int price = Integer.parseInt(multi.getParameter("price"));
 		String detail = multi.getParameter("detail");
 		String category = multi.getParameter("category");
-		//System.out.println(category);
 		String cha = multi.getParameter("cha");
-		//System.out.println(cha);
 		vo.setName(name);
 		vo.setDetail(detail);
 		vo.setPrice(price);
 		vo.setCategory(category);
 		vo.setCha(cha);
 		//이미지 정보 생성
-		if(list_cha == null && list_cate == null)
-			initList();
+	/*	if(list_cha == null && list_cate == null)
+			initList();*/
 		String formname;
 		String fileName;
 		ArrayList<String> fileNames = new ArrayList<String>(); //dao에 보내져서 실질적으로 db에 저장될 파일 이름들 -> savedir과 함계 보내짐

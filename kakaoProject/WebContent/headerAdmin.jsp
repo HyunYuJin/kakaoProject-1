@@ -14,26 +14,13 @@
 	<a href="indexAdmin.jsp"><img src="images/logo.gif" alt="logo"></a>
 	<div class="gnb">
 		<span><a href="index.jsp">Hello Kakao</a><a href="#">Korea</a></span>
-                <%-- <% if(session.getAttribute("cUser") == null){%>
-                	<span><a href="login.jsp">Login</a><a href="join.jsp">Join</a></span>
-                	<%}else{ %>
-                	<%
-                	MemberVO cUser = (MemberVO) session.getAttribute("cUser");
-                	%>
-                	<span><%=cUser.getId() %>님 환영합니다. <a href="#">내 정보 보기</a><a href="memberLoginProcess.do">Logout</a></span>
-                	<%} %> --%>
                 	<span><a href="adminLoginProcess.do">Logout</a></span>
 	</div>
 	<nav>
                 <ul>
                     <li><a href="userAdmin.jsp">회원관리</a></li>
                     <li><a href="ApplyAdmin.jsp">지원서관리</a></li>
-                    <li>
-                        <a href="ProductAdmin.jsp">상품관리</a>
-                        <ul>
-                            <li><a href="SlideAdmin.jsp">상품슬라이드관리</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="ProductAdmin.jsp">상품관리</a></li>
                     <li><a href="orderAdmin.jsp">주문목록</a></li>
                     <li><a href="FieldAdmin.jsp">필드관리</a></li>
                 </ul>

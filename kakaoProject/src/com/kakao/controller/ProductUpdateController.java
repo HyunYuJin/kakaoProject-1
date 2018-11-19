@@ -1,8 +1,9 @@
 package com.kakao.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,6 @@ import com.kakao.service.ImageService;
 import com.kakao.service.ProductService;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import java.util.Collections;
 
 public class ProductUpdateController implements Controller {
 
@@ -44,7 +44,8 @@ public class ProductUpdateController implements Controller {
 		
 		
 		String realSaveDir = "쇼핑몰/쇼핑몰/test";
-		ArrayList<String> fileNames = new ArrayList<String>();
+		//ArrayList<String> fileNames = new ArrayList<String>();
+		HashMap<String,String> fileNames = new HashMap<String,String>();
 		String formname;
 		String fileName;
 		
@@ -58,39 +59,42 @@ public class ProductUpdateController implements Controller {
 		while(form.hasMoreElements())
 		{	
 			formname = (String) form.nextElement();
+			System.out.println(formname);
 			fileName = multi.getFilesystemName(formname);
 			System.out.println(fileName);
 			if(fileName != null)
 			{
-				fileNames.add(fileName); //null이아니면 fileNames에 추가 
+				fileNames.put(formname, fileName);
 			}
 			else
-				fileNames.add("null");
-			
+				fileNames.put(formname, "null");			
 		}
 		System.out.println();
 		
-		Collections.reverse(fileNames);
 		
-		for(String str : fileNames)
-		{
-			System.out.println(str);	
-		}
+
 		
-		for(int x : hasImage)
-		{
-			System.out.println(x);
-		}
+		
 		for(int x = 0 ; x < 6 ; x++)
 		{
 			int image = hasImage[x];
-			String file = fileNames.get(x);
+			String file = fileNames.get("image"+(x+1));
 			
 			if(image !=0  && !(file.equals("null")))
 			{
 				System.out.println("원래 있던거 수정");
-				service_2.deleteImage(image);
-				service_2.insertImage(realSaveDir, file,num);
+				if(service_2.isMain(image))
+				{
+					System.out.println("main 수정");
+					service_2.deleteImage(image);
+					service_2.insertImage(realSaveDir, file,num,"main");
+				}
+				else
+				{
+					System.out.println("sub 수정");
+					service_2.deleteImage(image);
+					service_2.insertImage(realSaveDir, file,num);
+				}
 			}
 			else if(image == 0 && !(file.equals("null")))
 			{

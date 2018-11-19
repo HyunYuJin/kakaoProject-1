@@ -8,29 +8,30 @@
     import = "com.kakao.controller.HttpUtil"
     %>
 <% 
-	if(session.getAttribute("admin") == null)
-	{
-		HttpUtil.forward(request, response,"index.jsp");
-		return;
-	}
+   if(session.getAttribute("admin") == null)
+   {
+      HttpUtil.forward(request, response,"index.jsp");
+      return;
+   }
 %>
 <%
-	ProductService service = ProductService.serviceGetInstance();
-	ImageService service_2 = ImageService.getInstance();
-	int num = Integer.parseInt(request.getParameter("num"));
-	ProductVO product = null;
-	ArrayList<ProductVO> list = service.getProductList();
-	for(ProductVO vo : list)
-	{
-		if(vo.getNum()==num)
-		{
-			product = vo;
-			break;
-		}
-	}
-	ArrayList<ImageVO> list_i = service_2.getImageList(product.getNum());
-	String path = request.getRealPath("/");
-	/* ImageVO mainImage = service_2.getImageList(product.getNum()); */
+   ProductService service = ProductService.serviceGetInstance();
+   ImageService service_2 = ImageService.getInstance();
+   int num = Integer.parseInt(request.getParameter("num"));
+   ProductVO product = null;
+   ArrayList<ProductVO> list = service.getProductList();
+   for(ProductVO vo : list)
+   {
+      if(vo.getNum()==num)
+      {
+         product = vo;
+         break;
+      }
+   }
+   ArrayList<ImageVO> list_i = service_2.getImageList(product.getNum());
+   String path = request.getRealPath("/");
+   String defaultImage = "images/defaultImage.jpg";
+   /* ImageVO mainImage = service_2.getImageList(product.getNum()); */
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,13 +63,8 @@
                             <th class="first">캐릭터</th>
                             <td>
                                 <select name="cha" id="sort">
-                                    <option value="llion">Lion</option>
-                                    <option value="apeach">Apeach</option>
-                                    <option value="neo">Neo</option>
-                                    <option value="muzi">Muzi/kun</option>
-                                    <option value="tubo">Tube</option>
-                                    <option value="jay_g">Jay-G</option>
-                                    <option value="frodo">Frodo</option>
+                                    <option value="<%=product.getCha()%>"><%=product.getCha()%></option>
+                                    
                                 </select>
                             </td>                        
                         </tr>
@@ -78,48 +74,45 @@
                             <th class="first">분류</th>
                             <td>
                                 <select name="category" id="sort">
-                                    <option value="stationery">Stationery</option>
-                                    <option value="clothes">Clothes</option>
-                                    <option value="doll">Doll</option>
-                                    <option value="goods">Goods</option>
-                                    <option value="jewelry">Jewelry</option>
+                                    <option value="<%=product.getCategory()%>"><%=product.getCategory()%></option>                                    
                                 </select>
                             </td>
                         </tr>
                     </table>
                     <article id="uploadForm">                    
-                              <div class="uploadDiveWrap">                           	
-                              	<%
-			                   int n = 1;
-			                   String name = "file" + n;
-			                   String image = "image" + n;
-			                    for(ImageVO i : list_i)
-			                    {
-			                    	name = "file" + n;
-			                    	image = "image" + n;
-			                    	n++;
-			                    	String realPath = path + i.getSrc();			                    	
-			                    	%>
-			                    	<div>
-			                    	<img src = <%=i.getSrc()%>>
-			                    	<input type = "hidden" name = <%=name%> value = "<%=i.getNum()%>">
-			                    	<input type = "file" name = <%=image%> size =40>      
-			                    	</div>       	
-			                    	<%
-			                    }
-			                    while(n <= 6)
-			                    {
-			                    	name = "file" + n;
-			                    	image = "image" + n;
-			                    %>                    	
-			                    	<div>			                    	
-			                    	<input type = "hidden" name = <%=name%> value ="0">           
-			                    	<input type = "file" name =  <%=image%> size=40>
-			                    	</div>       
-			                    <%
-			                    n++;
-			                    }
-			                    %>                          
+                              <div class="uploadDiveWrap">                              
+                                 <%
+                            int n = 1;
+                            String name = "file" + n;
+                            String image = "image" + n;
+                             for(ImageVO i : list_i)
+                             {
+                                name = "file" + n;
+                                image = "image" + n;
+                                n++;
+                                String realPath = path + i.getSrc();                                
+                                %>
+                                <div>
+                                <img src = <%=i.getSrc()%>>
+                                <input type = "hidden" name = <%=name%> value = "<%=i.getNum()%>">
+                                <input type = "file" accept="image/*" name = <%=image%> size =40>      
+                                </div>          
+                                <%
+                             }
+                             while(n <= 6)
+                             {
+                                name = "file" + n;
+                                image = "image" + n;
+                             %>                       
+                                <div>
+                                <img src = <%=defaultImage%>>                                
+                                <input type = "hidden" name = <%=name%> value ="0">           
+                                <input type = "file" accept="image/*" name =  <%=image%> size=40>
+                                </div>       
+                             <%
+                             n++;
+                             }
+                             %>                          
                               </div>                       
                         </article>   
                     <div class="button1">
@@ -127,7 +120,7 @@
                           <input type="submit" value="저장">
                     </div>
                      </form>
-                    </div>
+                    </article></section>
         <footer>
            <%@ include file = "footerAdmin.jsp" %>
         </footer>

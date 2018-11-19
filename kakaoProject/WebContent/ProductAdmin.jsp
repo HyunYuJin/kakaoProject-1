@@ -79,11 +79,11 @@
                                       ArrayList<ImageVO> imagelist = service_2.getImageList(vo.getNum());
                                       for(ImageVO image : imagelist)
                                       {%>
-                                         <%-- <div>
+                                         <div>
                                          	<img src = <%=image.getSrc()%>>
-                                         </div> --%>
-                                         <%=image.getSrc()%>
-                                         &nbsp;/&nbsp;                                         
+                                         </div> 
+                                        <%--  <%=image.getSrc()%> --%>
+                                                                        
                                       <%}
                                       %>
                                       </td>                                    
@@ -113,17 +113,19 @@
                                       <td><%=vo.getPrice()%></td>
                                       <td><%=vo.getDetail()%></td>
                                       <td>
+                                      <div class="image_div">
                                       <%
                                       ArrayList<ImageVO> imagelist = service_2.getImageList(vo.getNum());
                                       for(ImageVO image : imagelist)
                                       {%>
-                                         <%-- <div>
+                                         <div>
                                          	<img src = <%=image.getSrc()%>>
-                                         </div> --%>
-                                         <%=image.getSrc()%>
-                                         &nbsp;/&nbsp;                                         
+                                         </div>
+                                         <%-- <%=image.getSrc()%> --%>
+                                                                               
                                       <%}
                                       %>
+                                      </div>
                                       </td>
                                       <td class="update">
                                        <a href="ProductUpdateAdmin.jsp?num=<%=vo.getNum()%>">

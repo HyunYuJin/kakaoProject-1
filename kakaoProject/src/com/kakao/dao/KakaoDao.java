@@ -14,6 +14,7 @@ import com.kakao.VO.ProductVO;
 import com.kakao.VO.ResumeVO;
 
 
+
 public class KakaoDao {
 
 	/*private static boolean Idchk = false; //아이디 중복 : 같으면 true 다르면 false
@@ -1515,6 +1516,59 @@ public class KakaoDao {
 		catch(Exception e)
 		{
 			System.out.println("imageinsert : dao 오류 발생 -> " + e);
+		}
+		finally
+		{
+			close(conn, psmt);
+		}
+	}
+
+	public boolean isMain(int imageNum) 
+	{
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		boolean isMain = false;
+		try
+		{
+			conn = connect();
+			psmt = conn.prepareStatement("select position from image where num = ?");	
+			psmt.setInt(1, imageNum);
+			rs = psmt.executeQuery();
+			while(rs.next())
+			{
+				if(rs.getString(1).equals("main"))
+					isMain = true;
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("isMain : dao 오류 발생 -> " + e);
+		}
+		finally
+		{
+			close(conn, psmt);
+		}
+		return isMain;
+	}
+
+	public void insertImages(String realSaveDir, String file, int num, String pos) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		try
+		{
+			conn = connect();
+			psmt = conn.prepareStatement("insert into image(src,position,productNum) values(?,?,?)");	
+			psmt.setString(1,realSaveDir + "/" + file);
+			psmt.setString(2, pos);
+			psmt.setInt(3, num);
+			psmt.executeUpdate();		
+		}
+		catch(Exception e)
+		{
+			System.out.println("imageinsert // main 자리 : dao 오류 발생 -> " + e);
 		}
 		finally
 		{

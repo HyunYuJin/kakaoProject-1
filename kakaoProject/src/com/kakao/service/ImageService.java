@@ -51,4 +51,15 @@ public class ImageService {
 		dao.deleteImages(productNum);
 	}
 	
+	public boolean isMain(int imageNum)
+	{
+		return dao.isMain(imageNum);
+	}
+
+	public void insertImage(String realSaveDir, String file, int num, String pos) //바뀌는 자리가 main인경우 
+	{
+		// TODO Auto-generated method stub
+		dao.insertImages(realSaveDir,file,num,pos);
+	}
+	
 }

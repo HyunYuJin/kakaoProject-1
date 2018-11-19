@@ -47,13 +47,13 @@ article > p{
 }
 
 #UserTable{
-    width: 1200px;
+    width: 90%;
     margin: 0 auto;
     margin-bottom: 50px;
 }
 
 table{
-    width: 1200px;
+    width: 100%;
     margin: 0 auto;
     border: 0;
     border-spacing: 0;
@@ -94,7 +94,24 @@ td{
     border-left: 1px solid #cccccc;
 }
 
+.image_div{
+   width: 100%;
+   height: auto;
+}
+
+.image_div div{
+   width: 15%;
+   float: left;
+   border: 1px solid#eee;
+   box-sizing: border-box;
+}
+
+.image_div div img{
+   width: 100%;
+}
+
 section{
+   width: 100%;
     min-height: 100%;
 }
 
